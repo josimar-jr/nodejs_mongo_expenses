@@ -16,7 +16,7 @@ var process = module.exports = {
     var userEmail = "user1@email.com"; //askingUser( `Email do usuario:` );
 
     // Read the file 
-    var workbook = XLSX.readFile('./test/assets/__modelo.xls');
+    var workbook = XLSX.readFile('./test/assets/__modelo.xlsx');
     var sheet_name_list = workbook.SheetNames;
     var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]);
 
