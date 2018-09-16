@@ -7,7 +7,9 @@ var importProcess = require('./import.js');
 
 // connect to Mongo when the app initializes
 // mongodb://username:password@host:port/database
-mongoose.connect('mongodb://localhost:27017/node_dev');
+const mongoUri = process.env.NE_MONGOURI || 'mongodb://localhost:27017/node_dev'
+const port = process.env.PORT || 3000
+mongoose.connect( mongoUri );
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -29,5 +31,5 @@ app.route('/')
 
 app.post('/import', (req, res) => importProcess.import(req, res))
 
-app.listen(3000);
-console.log(`Express server listening on port ${3000}`);
+app.listen(port);
+console.log(`Express server listening on port ${port}`);
