@@ -8,7 +8,7 @@ var importProcess = require('./import.js');
 // connect to Mongo when the app initializes
 // mongodb://username:password@host:port/database
 const mongoUri = process.env.NE_MONGOURI || 'mongodb://localhost:27017/node_dev'
-const port = process.env.PORT || 3000
+const port = Number(process.env.PORT) || 3000
 mongoose.connect( mongoUri );
 
 var db = mongoose.connection;
